@@ -1,0 +1,8 @@
+<h2>Personal Info:</h2>
+<p>Person name: {{personData.name}}</p>
+<p>email: {{personData.email}}</p>
+<div class="status">
+    <p>Student status: {{personData.isStudent}}</p>
+    <button (click)="ChangeStatus()">Change Student Status</button>
+</div>
+<app-child [personData] = "personData"></app-child>

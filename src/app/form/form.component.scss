@@ -1,0 +1,93 @@
+.review-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+    margin: 0 auto;
+    background-color: rgba(85, 116, 145, 0.678);
+    border-radius: 10px;
+    .form-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 90%; 
+        .form {
+            width: 90%;
+        }
+        .form-username {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 30px;
+            .input-text {
+                width:50%;
+                outline: none;
+            }
+            .label-class {
+                font-size: 20px;
+                font-weight: bold;
+            }
+            .date-input {
+                outline: none;
+            }
+        }
+        .stars-div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .form-stars {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                
+                img {
+                    width: 50px;
+                    cursor: pointer;
+                }
+            }
+            .label-rating{
+                font-size: 20px;
+                font-weight: bold; 
+            }
+        }
+        .review-textarea {
+            resize: none;
+            outline: none;
+            width: 80%;
+            height: 120px;
+        }
+        .submit-div{
+            width: 200px;
+            display: flex;
+            justify-content: center;
+            margin: 0 auto;
+            .submit {
+                width: 130px;
+                height: 40px;
+                color: #fff;
+                background-color: rgba(59, 80, 151, 0.308);
+            }
+        }
+    }
+}
+.submitedForm-div {
+    border-radius: 12px;
+    width: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: rgba(31, 109, 119, 0.678);
+    .star-res {
+        width: 30px;
+    }
+    .sub-review{
+        width: 100%;
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}

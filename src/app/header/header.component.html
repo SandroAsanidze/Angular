@@ -1,0 +1,11 @@
+<div style="background-color: rgb(14, 159, 216);">
+    <ul class="nav nav-tabs">
+      <li class="nav-item" *ngFor="let nav of navigation">
+        <a
+        class="nav-link"
+        [routerLink]="nav.path"
+        [routerLinkActiveOptions]="{exact: true}"
+        routerLinkActive="active">{{ nav.name }}</a>
+      </li>
+    </ul>
+</div>

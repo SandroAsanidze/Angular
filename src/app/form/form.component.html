@@ -1,0 +1,81 @@
+<div class="review-div">
+    <h2>Product Review</h2>
+    <p>We appreciate you taking the time to review our product!</p>
+    <div class="form-div">
+        <form class="form" [formGroup]="reactiveForm" (ngSubmit)="Submit()">
+            <div class="form-username">
+                <label class="label-class" for="">Username</label>
+                <input class="input-text" type="text" formControlName="username">
+                <div class="text-danger" *ngIf="reactiveForm.controls['username'].invalid && (reactiveForm.controls['username'].dirty || reactiveForm.controls['username'].touched)">
+                    *This field is required
+                </div>
+            </div>
+
+            <div class="form-username">
+                <label class="label-class" for="">Title</label>
+                <input class="input-text" type="text" formControlName="title">
+                <div class="text-danger" *ngIf="reactiveForm.controls['title'].invalid && (reactiveForm.controls['title'].dirty || reactiveForm.controls['title'].touched)">
+                    *This field is required
+                </div>
+            </div>
+
+            <div class="form-username">
+                <label class="label-class">Rate Status</label>
+                <select formControlName="status">
+                    <option> Options</option>
+                    <option *ngFor = "let status of statusList">{{status}}</option>
+                </select>
+                <div class="text-danger" *ngIf="reactiveForm.controls['status'].invalid && (reactiveForm.controls['status'].dirty || reactiveForm.controls['status'].touched)">
+                    *This field is required
+                </div>
+            </div>
+
+            <div class="stars-div" >
+                <label class="label-rating">Rating</label>
+                <div class="form-stars">
+                    <ng-container *ngFor="let number of [1,2,3,4,5]">
+                        <img *ngIf="number <= reactiveForm.get('rating')?.value" src="../../assets/star.png"  (click)="onStarClick(number)">
+                        <img *ngIf="number > reactiveForm.get('rating')?.value" src="../../assets/empty.png"  (click)="onStarClick(number)">
+                    </ng-container>
+                </div>
+            </div>
+
+            <div class="form-username">
+                <label class="label-class">Review</label>
+                <textarea class="review-textarea" formControlName="review"></textarea>
+
+                <div class="text-danger" *ngIf="reactiveForm.controls['review'].invalid && (reactiveForm.controls['review'].dirty || reactiveForm.controls['review'].touched)">
+                    <div *ngIf="reactiveForm.controls['review'].errors">
+                        <div class="text-danger" *ngIf="reactiveForm.controls['review'].errors['required']" >*This field is required</div>
+                        <div class="text-danger" *ngIf="reactiveForm.controls['review'].errors['maxlength']" >*Max 50 characters</div>
+                    </div>
+                </div>
+                <p>Maximum 50 characters</p>
+            </div>
+            <i class="fa-solid fa-star"></i>
+            <div class="form-username">
+                <label class="label-class">Date</label>
+                <input class="date-input" type="date" formControlName="date">
+            </div>
+            <div class="submit-div">
+                <button class="submit" type="submit" [disabled] = "!reactiveForm.valid">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<div *ngIf="submitedForm" class="submitedForm-div">
+    <h3>{{submitedForm.username}}</h3>
+    <p>{{submitedForm.title}}</p>
+    <div *ngIf="reactiveForm.get('rating')?.value>0">
+        <ng-container *ngFor="let number of [1,2,3,4,5]">
+            <img class="star-res" *ngIf="number <= submitedForm.rating" src="../../assets/star.png">
+            <img class="star-res" *ngIf="number > submitedForm.rating" src="../../assets/empty.png">
+        </ng-container>
+    </div>
+    <div class="sub-review">
+        <h5>Review</h5>
+        <p>{{submitedForm.review}}</p>
+    </div>
+</div>

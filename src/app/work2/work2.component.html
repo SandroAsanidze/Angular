@@ -1,0 +1,7 @@
+<p style="font-size:25px">INTEGERS:</p>
+<ng-container *ngFor="let integer of integers">
+    <p style="font-size:18px" [ngSwitch] = "Checknums(integer.num)">{{integer.num}}
+        <span *ngSwitchCase ="'Even'" [ngStyle] = "{'color':'green'}">Even</span>
+        <span *ngSwitchCase ="'Odd'" [ngStyle] = "{'color':'red'}">Odd</span>
+    </p>
+</ng-container>
